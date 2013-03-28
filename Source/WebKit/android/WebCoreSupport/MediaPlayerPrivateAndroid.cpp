@@ -210,12 +210,12 @@ public:
         JNIEnv* env = JSC::Bindings::getJNIEnv();
         if (!env || !m_url.length() || !m_glue->m_javaProxy)
             return;
-
+#if 0
         // We only play video fullscreen on Android, so stop sites playing fullscreen video in the onload handler.
         Frame* frame = m_player->frameView()->frame();
         if (frame && !frame->loader()->documentLoader()->wasOnloadHandled())
             return;
-
+#endif
         m_paused = false;
         m_player->playbackStateChanged();
 
